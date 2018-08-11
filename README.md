@@ -16,4 +16,4 @@ Then the modifier will automatically revert any payments that are not originatin
 
 ![modifier](https://github.com/Blocktopus/BlocktopusICO/blob/master/example/readme-imgs/modifier.png)
 
-You can see an example ICO using the Blocktopus modifier in /example/ETHZCrowdsale.sol.
+You can see an example ICO using the Blocktopus modifier in [/example/ETHZCrowdsale.sol](https://github.com/Blocktopus/BlocktopusICO/blob/master/example/ETHZCrowdsale.sol).
