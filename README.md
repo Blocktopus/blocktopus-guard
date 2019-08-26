@@ -3,17 +3,9 @@ The solidity library that enables ICOs to automate KYC by using the Blocktopus p
 
 ## How to use it
 
-In your ICO's Smart Contract, inherit the BlocktopusICO Contract and apply the
-BlocktopusTxsOnly modifier at your payable function that is accepting the funds.
-Then the modifier will automatically revert any payments that are not originating from
-[Blocktopus](https://blocktopus.io).
+In your Token Sale's Smart Contract, inherit the BlocktopusGuarded contract and apply the BlocktopusOnly modifier at your payable function that is accepting the funds.
 
-### Inherit BlocktopusICO
+Then the modifier will automatically reject any payments that are not originating from a KYC'd [Blocktopus](https://blocktopus.io) wallet.
 
-![inherit](https://github.com/Blocktopus/BlocktopusICO/blob/master/example/readme-imgs/ico.png)
 
-### Apply modifier
-
-![modifier](https://github.com/Blocktopus/BlocktopusICO/blob/master/example/readme-imgs/modifier.png)
-
-You can see an example ICO using the Blocktopus modifier in [/example/ETHZCrowdsale.sol](https://github.com/Blocktopus/BlocktopusICO/blob/master/example/ETHZCrowdsale.sol).
+![sample](https://www.dropbox.com/s/pmqmey9lsvgsv9b/sample.png?dl=1)
