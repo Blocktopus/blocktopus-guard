@@ -32,25 +32,19 @@ import "../node_modules/openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
  * @dev Guards a function from being called by a non-Blocktopus controlled wallet.
  */
 
-contract BlocktopusGuard {
+contract BlocktopusGuarded {
 
   using ECDSA for bytes32;
 
-  event TransactionRejected(address, uint256);
-
-  address private _blocktopusPublicKey = 0xE7F6151aB2745Ad4bDa9925c06EEe3C3745A4E74;
+  address private _blocktopusAddress = 0xE7F6151aB2745Ad4bDa9925c06EEe3C3745A4E74;
 
   /**
    * @dev Guards a function from being called by a non-Blocktopus controlled wallet.
    */
-  modifier BlocktopusTxsOnly() {
-
-     address recoveredPublicKey = keccak256(abi.encodePacked(msg.sender))
-      .toEthSignedMessageHash()
-      .recover(msg.data);
-
-     require(_blocktopusPublicKey == recoveredPublicKey, "Failed to verify Blocktopus transaction");
-     _;
+  modifier BlocktopusOnly() {
+    address recoveredAddress = keccak256(abi.encodePacked(msg.sender)).toEthSignedMessageHash().recover(msg.data);
+    require(_blocktopusAddress == recoveredAddress, "Recovered address doesn't match Blocktopus'");
+    _;
   }
 }
 
@@ -59,7 +53,7 @@ contract BlocktopusGuard {
  *
  * @dev Demonstrates how to guard Solidity functions from non-Blocktopus controlled wallets.
  */
-contract BlocktopusCrowdsale is BlocktopusGuard, ERC20Detailed, ERC20 {
+contract BlocktopusSampleCrowdsale is BlocktopusGuarded, ERC20Detailed, ERC20 {
 
   string private _name = "Blocktopus Sample Crowdsale";
   string private _symbol = "BLCS";
@@ -70,8 +64,8 @@ contract BlocktopusCrowdsale is BlocktopusGuard, ERC20Detailed, ERC20 {
   /**
    * @dev Accept funds in callback function from Blocktopus controlled wallets only.
    */
-  function () external payable BlocktopusTxsOnly {
-    uint amount = msg.value * 1000;
+  function () external payable BlocktopusOnly {
+    uint amount = msg.value.mul(1000);
     super._mint(msg.sender, amount);
   }
 }
