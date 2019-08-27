@@ -1,6 +1,6 @@
 # Blocktopus Sample Crowdsale
 
-The Solidity library that enables Token Sales to automate their KYC proces by using the [Blocktopus](https://blocktopus.io) platform.
+The Solidity library that enables Token Sales to automate their KYC process by using the [Blocktopus](https://blocktopus.io) platform.
 
 ## How to use it
 
