@@ -1,5 +1,6 @@
-# BlocktopusICO
-The solidity library that enables ICOs to automate KYC by using the Blocktopus platform
+# Blocktopus Sample Crowdsale
+
+The Solidity library that enables Token Sales to automate their KYC proces by using the [Blocktopus](https://blocktopus.io) platform.
 
 ## How to use it
 
@@ -7,5 +8,4 @@ In your Token Sale's Smart Contract, inherit the BlocktopusGuarded contract and 
 
 Then the modifier will automatically reject any payments that are not originating from a KYC'd [Blocktopus](https://blocktopus.io) wallet.
 
-
-![sample](https://www.dropbox.com/s/pmqmey9lsvgsv9b/sample.png?dl=1)
+![sample](./images/sample.png?dl=1)
