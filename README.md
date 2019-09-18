@@ -3,7 +3,7 @@ The Solidity library that protects Dapps from receiving Ether from wallets that 
 
 ## How to use it
 
-In your DApps Smart Contract, inherit the BlocktopusGuarded contract and apply the BlocktopusOnly modifier at your payable function that is accepting the funds.
+In your DApp's Smart Contract, inherit the BlocktopusGuarded contract and apply the BlocktopusOnly modifier at your payable function that is accepting the funds.
 
 Then the modifier will automatically reject any payments that are not originating from a KYC'd [Blocktopus](https://blocktopus.io) wallet.
 
