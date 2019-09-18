@@ -1,5 +1,4 @@
-# Blocktopus Sample Crowdsale
-
+# Blocktopus Guard Solidity Library
 The Solidity library that protects Dapps from receiving Ether from wallets that have not been KYC'd by the [Blocktopus](https://blocktopus.io) platform.
 
 ## How to use it
