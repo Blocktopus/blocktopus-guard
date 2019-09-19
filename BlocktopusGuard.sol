@@ -30,7 +30,7 @@ contract BlocktopusGuarded {
   address private _blocktopusAddress = 0xE7F6151aB2745Ad4bDa9925c06EEe3C3745A4E74;
 
   /**
-   * @dev Guards a function from being called by a non-Blocktopus controlled wallet.
+   * @dev Guards a function from being called by a non-Blocktopus verified wallet.
    */
   modifier BlocktopusOnly() {
     address recoveredAddress = keccak256(abi.encodePacked(msg.sender)).toEthSignedMessageHash().recover(msg.data);
