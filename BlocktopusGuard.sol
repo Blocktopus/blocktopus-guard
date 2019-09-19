@@ -1,7 +1,4 @@
 /*
- * Example of using BlocktopusICO in a Crowdsale in order to allows only payments
- * from Blocktopus Wallets.
- *
  * Copyright 2019 Blocktopus Single Member P.C.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,14 +17,8 @@
 
 pragma solidity ^0.5.1;
 
-import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
-import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
-import "../node_modules/openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
-
 /**
- * @title Blocktopus guard library
+ * @title Blocktopus Guard library
  *
  * @dev Guards a function from being called by a non-Blocktopus verified wallet.
  */
@@ -45,27 +36,5 @@ contract BlocktopusGuarded {
     address recoveredAddress = keccak256(abi.encodePacked(msg.sender)).toEthSignedMessageHash().recover(msg.data);
     require(_blocktopusAddress == recoveredAddress, "Recovered address doesn't match Blocktopus'");
     _;
-  }
-}
-
-/**
- * @title Blocktopus Sample Crowdsale
- *
- * @dev Demonstrates how to guard Solidity functions from non-Blocktopus controlled wallets.
- */
-contract BlocktopusSampleCrowdsale is BlocktopusGuarded, ERC20Detailed, ERC20 {
-
-  string private _name = "Blocktopus Sample Crowdsale";
-  string private _symbol = "BLCS";
-  uint8 private _decimals = 18;
-
-  constructor() public ERC20Detailed(_name, _symbol, _decimals) { return; }
-
-  /**
-   * @dev Accept funds in fallback function from Blocktopus controlled wallets only.
-   */
-  function () external payable BlocktopusOnly {
-    uint amount = msg.value.mul(1000);
-    super._mint(msg.sender, amount);
   }
 }
