@@ -25,6 +25,7 @@ pragma solidity ^0.5.1;
 
 contract BlocktopusGuarded {
 
+  /* "Using openzeppelin-solidity/contracts/cryptography/ECDSA.sol" from openzeppelin-solidity@2.3.0 */
   using ECDSA for bytes32;
 
   address private _blocktopusAddress = 0xE7F6151aB2745Ad4bDa9925c06EEe3C3745A4E74;
