@@ -22,6 +22,7 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 const infuraKey = "45aad5d782be4a68904db4fdf74c315c";
 
 const fs = require('fs');
+// The following .secret file has no value, so it's on purpose part of the repo
 const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {

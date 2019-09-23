@@ -51,12 +51,12 @@ contract BlocktopusGuarded {
 /**
  * @title Blocktopus Sample Crowdsale
  *
- * @dev Demonstrates how to guard Solidity functions from non-Blocktopus controlled wallets.
+ * @dev Demonstrates how to guard Solidity functions from unverified Blocktopus Wallets.
  */
 contract BlocktopusSampleCrowdsale is BlocktopusGuarded, ERC20Detailed, ERC20 {
 
   string private _name = "Blocktopus Sample Crowdsale";
-  string private _symbol = "BLCS";
+  string private _symbol = "BLSC";
   uint8 private _decimals = 18;
 
   constructor() public ERC20Detailed(_name, _symbol, _decimals) { return; }
